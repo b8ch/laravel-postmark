@@ -20,7 +20,7 @@ Please see [UPGRADE](UPGRADE.md) for details.
 You can install the package via composer:
 
 ``` bash
-$ composer require coconutcraig/laravel-postmark
+$ composer require laraben/laravel-postmark
 ```
 
 The package will automatically register itself.
