@@ -27,21 +27,10 @@ class PostmarkServiceProvider extends ServiceProvider
 
         $this->mergeConfigFrom(__DIR__.'/../config/postmark.php', 'postmark');
         
-        dd(\Session::get('ss_active_calendar'));
-       
-        $userKey = DB::table('calendars')->where('user_uuid',  \Session::get('ss_active_calendar'))->first();
-
-        if(!empty($userKey)):
-          
-            $pmKey = $userKey->postmark_key;
-        else:
-            $pmKey = config('postmark.secret', config('services.postmark.secret'));
-        endif;
-
         $this->app['swift.transport']->extend('postmark', function () {
             return new PostmarkTransport(
                 $this->guzzle(config('postmark.guzzle', [])),
-                $pmKey
+                config('postmark.secret', config('services.postmark.secret'))
             );
         });
     }
