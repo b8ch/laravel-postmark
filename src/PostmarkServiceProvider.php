@@ -26,6 +26,8 @@ class PostmarkServiceProvider extends ServiceProvider
         }
 
         $this->mergeConfigFrom(__DIR__.'/../config/postmark.php', 'postmark');
+        
+        dd(\Session::get('ss_active_calendar'));
        
         $userKey = DB::table('calendars')->where('user_uuid',  \Session::get('ss_active_calendar'))->first();
 
