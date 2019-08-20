@@ -4,6 +4,7 @@ namespace Coconuts\Mail;
 
 use GuzzleHttp\Client as HttpClient;
 use Illuminate\Support\ServiceProvider;
+use DB;
 
 class PostmarkServiceProvider extends ServiceProvider
 {
@@ -25,11 +26,20 @@ class PostmarkServiceProvider extends ServiceProvider
         }
 
         $this->mergeConfigFrom(__DIR__.'/../config/postmark.php', 'postmark');
+       
+        $userKey = DB::table('calendars')->where('user_uuid',  \Session::get('ss_active_calendar'))->first();
+
+        if(!empty($userKey)):
+          
+            $pmKey = $userKey->postmark_key;
+        else:
+            $pmKey = config('postmark.secret', config('services.postmark.secret'));
+        endif;
 
         $this->app['swift.transport']->extend('postmark', function () {
             return new PostmarkTransport(
                 $this->guzzle(config('postmark.guzzle', [])),
-                config('postmark.secret', config('services.postmark.secret'))
+                $pmKey
             );
         });
     }
