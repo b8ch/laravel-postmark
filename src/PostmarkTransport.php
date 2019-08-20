@@ -12,6 +12,9 @@ use Illuminate\Support\Collection;
 use Illuminate\Mail\Transport\Transport;
 use Coconuts\Mail\Exceptions\PostmarkException;
 
+use DB;
+use Session;
+
 class PostmarkTransport extends Transport
 {
     /**
@@ -52,7 +55,15 @@ class PostmarkTransport extends Transport
             );
         }
 
-        $this->key = $key;
+        $userKey = DB::table('calendars')->where('user_uuid', Session('ss_active_calendar'))->first();
+
+        if(!empty($userKey->postmark_key)):
+            dd('ok');
+            $this->key = $userKey->postmark_key;
+        else:
+            $this->key = $key;
+        endif;
+        
         $this->client = $client;
     }
 
