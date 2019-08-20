@@ -117,7 +117,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details
 If you discover any security related issues, please email craig.paul@coconutcalendar.com instead of using the issue tracker.
 
 ## Credits
-
+- Laraben
 - [Craig Paul][link-author]
 - [All Contributors][link-contributors]
 
