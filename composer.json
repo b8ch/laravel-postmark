@@ -1,5 +1,5 @@
 {
-    "name": "coconutcraig/laravel-postmark",
+    "name": "laraben/laravel-postmark",
     "type": "library",
     "description": "Laravel package for sending mail via the Postmark API",
     "keywords": [
@@ -10,13 +10,13 @@
         "email",
         "coconutcraig"
     ],
-    "homepage": "https://github.com/coconutcraig/laravel-postmark",
+    "homepage": "https://github.com/b8ch/laravel-postmark",
     "license": "MIT",
     "authors": [
         {
-            "name": "Craig Paul",
-            "email": "craig.paul@coconutcalendar.com",
-            "homepage": "https://coconutcalendar.com",
+            "name": "Laraben",
+            "email": "info@laraben.be",
+            "homepage": "https://laraben.com",
             "role": "Developer"
         }
     ],
