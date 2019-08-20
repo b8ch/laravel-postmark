@@ -8,7 +8,8 @@
         "laravel",
         "mail",
         "email",
-        "coconutcraig"
+        "coconutcraig",
+        "laraben"
     ],
     "homepage": "https://github.com/b8ch/laravel-postmark",
     "license": "MIT",
